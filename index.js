@@ -2,6 +2,15 @@
 // key: タスクの文字列 value: 完了しているかどうかの真偽値
 let tasks = new Map();
 
+// load package
+const fs = require("fs");
+const files = './tasks.json';
+
+
+function saveTasks() {
+  fs.writeFileSync(fileName, JSON.stringify(Array.from(tasks)), 'utf8');
+}
+
 /**
 * TODOを追加する
 * @param {string} task
