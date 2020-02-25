@@ -4,8 +4,7 @@ let tasks = new Map();
 
 // load package
 const fs = require("fs");
-const files = './tasks.json';
-
+const fileName = './tasks.json';
 
 function saveTasks() {
   fs.writeFileSync(fileName, JSON.stringify(Array.from(tasks)), 'utf8');
@@ -17,6 +16,7 @@ function saveTasks() {
 */
 function todo(task) {
   tasks.set(task, false);
+  saveTasks(); // save for JSON
 }
 
 /**
